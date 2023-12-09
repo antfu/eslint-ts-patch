@@ -2,7 +2,7 @@
 
 const path = require('node:path')
 
-const packageJson = require.resolve('eslint-vanilla/package.json')
+const packageJson = require.resolve('eslint/package.json')
 const eslintRoot = path.dirname(packageJson)
 
 const bin = path.join(eslintRoot, 'bin', 'eslint.js')

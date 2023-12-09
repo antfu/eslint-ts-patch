@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "eslint": "npm@eslint-ts-patch@latest"
+  }
+}

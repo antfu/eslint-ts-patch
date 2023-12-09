@@ -8,9 +8,12 @@ importers:
 
   .:
     dependencies:
-      eslint-vanilla:
-        specifier: npm:eslint@^8.55.0
-        version: /eslint@8.55.0
+      debug:
+        specifier: ^4.3.4
+        version: 4.3.4
+      eslint:
+        specifier: ^8.55.0
+        version: 8.55.0
       jiti:
         specifier: ^1.21.0
         version: 1.21.0
@@ -24,19 +27,16 @@ importers:
       '@antfu/utils':
         specifier: ^0.7.6
         version: 0.7.6
-      '@types/eslint-vanilla':
-        specifier: npm:@types/eslint@^8.0.0
-        version: /@types/eslint@8.44.8
+      '@types/eslint':
+        specifier: ^8.44.8
+        version: 8.44.8
       '@types/node':
         specifier: ^20.10.4
         version: 20.10.4
       bumpp:
         specifier: ^9.2.0
         version: 9.2.0
-      eslint:
-        specifier: ^8.55.0
-        version: 8.55.0
-      eslint-ts:
+      eslint-ts-patch:
         specifier: workspace:*
         version: 'link:'
       esno:
