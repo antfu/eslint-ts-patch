@@ -1,34 +1,45 @@
-import { afterEach, beforeEach, expect, it } from 'vitest'
+import { fileURLToPath } from 'node:url'
+import { dirname } from 'node:path'
+import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import fs from 'fs-extra'
 import { execa } from 'execa'
 
-const fixture = new URL('./fixtures/basic', import.meta.url).pathname
-const temp = new URL('../../.eslint-ts-patch-temp', import.meta.url).pathname
+describe('basic', () => {
+  const fixture = fileURLToPath(new URL('./fixtures/basic', import.meta.url))
+  const temp = fileURLToPath(new URL('../../.temp-eslint-ts-patch', import.meta.url))
 
-beforeEach(async () => {
-  await fs.rm(temp, { recursive: true, force: true })
-  await fs.copy(fixture, temp)
-})
+  beforeEach(async () => {
+    await fs.rm(temp, { recursive: true, force: true })
+    await fs.mkdirp(dirname(temp))
+    await fs.copy(fixture, temp)
+  })
 
-afterEach(async () => {
-  await fs.rm(temp, { recursive: true, force: true })
-})
+  afterEach(async () => {
+    await fs.rm(temp, { recursive: true, force: true })
+  })
 
-it.skip('npm', async () => {
-  await execa('npm', ['install'], { cwd: temp, stdio: 'pipe' })
-  const process = await execa('npm', ['run', 'lint'], { cwd: temp, stdio: 'pipe', env: {
-    DEBUG: 'eslint-ts-patch',
-  } })
-  expect(process.stderr)
-    .toContain('eslint-ts-patch initialized')
-  expect(process.stdout).toMatchInlineSnapshot(`
-    "
-    > lint
-    > eslint .
-    "
-  `)
-})
+  const packageManagers = ['npm', 'yarn', 'pnpm']
+  for (const pm of packageManagers) {
+    it(
+      pm,
+      async () => {
+        if (pm !== 'pnpm')
+          await fs.rm(`${temp}/pnpm-workspace.yaml`)
 
-it('dummy', () => {
-  expect(true).toBe(true)
+        await execa(pm, ['install'], { cwd: temp, stdio: 'pipe' })
+        const process = await execa(pm, ['run', 'lint'], {
+          cwd: temp,
+          stdio: 'pipe',
+          env: {
+            DEBUG: 'eslint-ts-patch',
+          },
+        })
+        expect(process.stderr)
+          .toContain('eslint-ts-patch initialized')
+        expect(process.stdout)
+          .toContain('Hello from eslint.config.ts')
+      },
+      30_000,
+    )
+  }
 })

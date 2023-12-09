@@ -5,7 +5,7 @@
     "lint": "eslint ."
   },
   "devDependencies": {
-    "eslint": "npm:eslint-ts-patch@latest",
-    "eslint-ts-patch": "latest"
+    "eslint": "file:../eslint-ts-patch",
+    "eslint-ts-patch": "file:../eslint-ts-patch"
   }
 }

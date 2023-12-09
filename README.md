@@ -11,11 +11,11 @@ Support loading `eslint.config.mjs` and `eslint.config.ts` as flat config files 
 Configure files will be searched in the following order, the first one found will be used:
 
 - `eslint.config.js`
-- `eslint.config.cjs`
 - `eslint.config.mjs`
+- `eslint.config.cjs`
 - `eslint.config.ts`
-- `eslint.config.cts`
 - `eslint.config.mts`
+- `eslint.config.cts`
 
 For `.js`, `.cjs`, and `.mjs` files, they will be loaded by Node's native `import()`.
 For `.ts`, `.cts`, and `.mts` files, they will be loaded using [`jiti`](https://github.com/unjs/jiti/).
