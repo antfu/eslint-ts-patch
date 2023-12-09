@@ -20,6 +20,8 @@ Configure files will be searched in the following order, the first one found wil
 For `.js`, `.cjs`, and `.mjs` files, they will be loaded by Node's native `import()`.
 For `.ts`, `.cts`, and `.mts` files, they will be loaded using [`jiti`](https://github.com/unjs/jiti/).
 
+Context: [Unfortunately ESLint team decided to not support `.cjs` and `.mjs`](https://github.com/eslint/eslint/issues/16580#issuecomment-1419027861).
+
 ## Install
 
 ```npm
@@ -33,6 +35,10 @@ It should make your `eslint` CLI works for MJS and TypeScript flat config files.
 This package proxies all ESLint exports, it should be compatible by aliasing the `eslint` package. The version of this package is the same as the latest supported ESLint version. It's using `^` relaxed dependency of `eslint`, so it should work with any newer versions of ESLint.
 
 When this package releases patches while ESLint hasn't bumped its version, it will be released with the same version as ESLint with a patch version suffix, e.g. `8.55.0-1`
+
+## How it works
+
+As the support of `eslint.config.js` seems to be quite hard-coded in ESLint, this package proxies all exports of ESLint and installs [this register]('./src/register.ts') beforehand. The register will swap some internal code of ESLint at runtime to make it work.
 
 ## Disclaimer
 
