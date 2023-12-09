@@ -6,7 +6,7 @@
 [![JSDocs][jsdocs-src]][jsdocs-href]
 [![License][license-src]][license-href]
 
-Support loading `eslint.config.mjs` and `eslint.config.ts` as flat config files for ESLint.
+Support loading `eslint.config.mjs` or `eslint.config.ts` as flat config file for ESLint.
 
 Configure files will be searched in the following order, the first one found will be used:
 
@@ -20,7 +20,7 @@ Configure files will be searched in the following order, the first one found wil
 For `.js`, `.cjs`, and `.mjs` files, they will be loaded by Node's native `import()`.
 For `.ts`, `.cts`, and `.mts` files, they will be loaded using [`jiti`](https://github.com/unjs/jiti/).
 
-Context: [Unfortunately ESLint team decided to not support `.cjs` and `.mjs`](https://github.com/eslint/eslint/issues/16580#issuecomment-1419027861).
+Context: [Unfortunately ESLint team decided to not support the detection of `.cjs` and `.mjs` as flat config](https://github.com/eslint/eslint/issues/16580#issuecomment-1419027861).
 
 ## Install
 
