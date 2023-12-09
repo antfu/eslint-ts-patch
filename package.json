@@ -32,8 +32,6 @@
     "lib"
   ],
   "scripts": {
-    "build": "unbuild",
-    "dev": "unbuild --stub",
     "lint": "eslint-ts .",
     "release": "bumpp && npm publish",
     "test": "vitest",

@@ -8,9 +8,6 @@ export default defineConfig({
     if (!subVersion)
       subVersion = '0'
 
-    if (Number.isNaN(Number(subVersion)))
-      return
-
     if (mainVersion !== eslintVersion) {
       mainVersion = eslintVersion
       subVersion = '0'
@@ -18,9 +15,7 @@ export default defineConfig({
     else {
       subVersion = String(Number(subVersion) + 1)
     }
-    if (subVersion === '0')
-      return mainVersion
-    else
-      return `${mainVersion}-${subVersion}`
+
+    return `${mainVersion}-${subVersion}`
   },
 })
