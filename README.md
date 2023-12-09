@@ -44,6 +44,21 @@ As the support of `eslint.config.js` seems to be quite hard-coded in ESLint, thi
 
 It's only recommended to install this as top-level development dependency (user-aware). For plugin or library authors, it's ok to document the usage of this package for better DX. But please avoid having this as the dependency of your library or plugin, otherwise, take your own risk.
 
+## Troubleshooting
+
+### Is the Patch Working
+
+This patch is designed to be as transparent as possible. If you want to verify if it's working, you can add `DEBUG="eslint-ts-patch"` environment variable to your command to see the debug logs.
+
+```
+➜ DEBUG="eslint-ts-patch" npx eslint -v
+
+  eslint-ts-patch initialized +0ms
+  eslint-ts-patch patched lib/eslint/flat-eslint.js +59ms
+
+v8.55.0
+```
+
 ## Sponsors
 
 <p align="center">
