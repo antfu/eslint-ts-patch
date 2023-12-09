@@ -30,11 +30,26 @@ npm i -D eslint-ts-patch eslint@npm:eslint-ts-patch
 
 It should make your `eslint` CLI works for MJS and TypeScript flat config files. If it's still not, you can try switching the CLI to `eslint-ts`.
 
+## Compatibility
+
+Tested with the following tools:
+
+### Package Managers
+
+- `npm` ✅
+- `pnpm` ✅
+- `yarn` ✅
+
+### Integrations
+
+- `eslint` CLI ✅
+- VSCode ESLint extension ✅ (as it's executing your local `node_modules/.bin/eslint`)
+
+Haven't gotten chance to test with other integrations, contributions are welcome.
+
 ## Versioning
 
-This package proxies all ESLint exports, it should be compatible by aliasing the `eslint` package. The version of this package is the same as the latest supported ESLint version. It's using `^` relaxed dependency of `eslint`, so it should work with any newer versions of ESLint.
-
-When this package releases patches while ESLint hasn't bumped its version, it will be released with the same version as ESLint with a patch version suffix, e.g. `8.55.0-1`
+This package proxies all ESLint exports, it should be compatible by aliasing the `eslint` package. The version of this package is the same as the latest supported ESLint version in addition to a patch number suffix indicate the patches of this package (e.g. `8.55.0-1`). It's using `^` relaxed dependency of `eslint`, so it should work with any newer versions of ESLint.
 
 ## How it works
 
