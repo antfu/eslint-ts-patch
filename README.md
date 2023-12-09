@@ -22,6 +22,22 @@ For `.ts`, `.cts`, and `.mts` files, they will be loaded using [`jiti`](https://
 
 ## Install
 
+```npm
+npm i -D eslint-ts-patch eslint@npm:eslint-ts-patch
+```
+
+It should make your `eslint` CLI works for MJS and TypeScript flat config files. If it's still not, you can try switching the CLI to `eslint-ts`.
+
+## Versioning
+
+This package proxies all ESLint exports, it should be compatible by aliasing the `eslint` package. The version of this package is the same as the latest supported ESLint version. It's using `^` relaxed dependency of `eslint`, so it should work with any newer versions of ESLint.
+
+When this package releases patches while ESLint hasn't bumped its version, it will be released with the same version as ESLint with a patch version suffix, e.g. `8.55.0-1`
+
+## Disclaimer
+
+It's only recommended to install this as top-level development dependency (user-aware). For plugin or library authors, it's ok to document the usage of this package for better DX. But please avoid having this as the dependency of your library or plugin, otherwise, take your own risk.
+
 ## Sponsors
 
 <p align="center">
