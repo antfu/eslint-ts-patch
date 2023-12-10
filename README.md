@@ -18,6 +18,7 @@ Configure files will be searched in the following order, the first one found wil
 - `eslint.config.cts`
 
 For `.js`, `.cjs`, and `.mjs` files, they will be loaded by Node's native `import()`.
+
 For `.ts`, `.cts`, and `.mts` files, they will be loaded using [`jiti`](https://github.com/unjs/jiti/).
 
 Context: [Unfortunately ESLint team decided to not support the detection of `.cjs` and `.mjs` as flat config](https://github.com/eslint/eslint/issues/16580#issuecomment-1419027861).
@@ -28,7 +29,7 @@ Context: [Unfortunately ESLint team decided to not support the detection of `.cj
 npm i -D eslint-ts-patch eslint@npm:eslint-ts-patch
 ```
 
-It should make your `eslint` CLI works for MJS and TypeScript flat config files. If it's still not, you can try switching the CLI to `eslint-ts`.
+It should make your `eslint` CLI work for those config files automatically. If it's still not, you can try switching the CLI to `eslint-ts`.
 
 ## Compatibility
 
