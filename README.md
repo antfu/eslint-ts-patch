@@ -53,7 +53,7 @@ This package proxies all ESLint exports, it should be compatible by aliasing the
 
 ## How it works
 
-As the support of `eslint.config.js` seems to be quite hard-coded in ESLint, this package proxies all exports of ESLint and installs [this register]('./src/register.ts') beforehand. The register will swap some internal code of ESLint at runtime to make it work.
+As the support of `eslint.config.js` seems to be quite hard-coded in ESLint, this package proxies all exports of ESLint and installs [this register](./src/register.ts) beforehand. The register will swap some internal code of ESLint at runtime to make it work.
 
 ## Disclaimer
 
