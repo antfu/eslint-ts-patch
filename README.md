@@ -50,15 +50,15 @@ Haven't gotten chance to test with other integrations, contributions are welcome
 
 ## Versioning
 
-This package proxies all ESLint exports, it should be compatible by aliasing the `eslint` package. The version of this package is the same as the latest supported ESLint version in addition to a patch number suffix indicate the patches of this package (e.g. `8.55.0-1`). It's using `^` relaxed dependency of `eslint`, so it should work with any newer versions of ESLint.
+This package proxies all ESLint exports, it should be compatible by aliasing the `eslint` package. The version of this package is the same as the latest supported ESLint version in addition to a patch number suffix indicating the patches of this package (e.g. `8.55.0-1`). It's using `^` relaxed dependency of `eslint`, so it should work with any newer versions of ESLint.
 
 ## How it works
 
-As the support of `eslint.config.js` seems to be quite hard-coded in ESLint, this package proxies all exports of ESLint and installs [this register](./src/register.ts) beforehand. The register will swap some internal code of ESLint at runtime to make it work.
+As the support of `eslint.config.js` seems to be quite hard-coded in ESLint, this package proxies all exports of ESLint and installs [this register](./lib/register.ts) beforehand. The register will swap some internal code of ESLint at runtime to make it work.
 
 ## Disclaimer
 
-It's only recommended to install this as top-level development dependency (user-aware). For plugin or library authors, it's ok to document the usage of this package for better DX. But please avoid having this as the dependency of your library or plugin, otherwise, take your own risk.
+It's only recommended to install this as top-level development dependency (user-aware). For plugin and library authors, it's ok to document the usage of this package for better DX. But we suggest avoiding having this as the dependency of your library or plugin, otherwise, take your own risk.
 
 ## Troubleshooting
 
