@@ -2,7 +2,7 @@
   "name": "eslint-ts-patch",
   "type": "commonjs",
   "version": "8.55.0-1",
-  "packageManager": "pnpm@8.12.0",
+  "packageManager": "pnpm@8.12.1",
   "description": "Support eslint.config.mjs and eslint.config.ts for ESLint",
   "author": "Anthony Fu <anthonyfu117@hotmail.com>",
   "license": "MIT",
@@ -40,28 +40,28 @@
   },
   "dependencies": {
     "debug": "^4.3.4",
-    "eslint": "^8.55.0",
+    "eslint": "^8.56.0",
     "jiti": "^1.21.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.4.3",
+    "@antfu/eslint-config": "^2.6.0",
     "@antfu/ni": "^0.21.12",
-    "@types/eslint": "^8.44.8",
+    "@types/eslint": "^8.56.0",
     "@types/fs-extra": "^11.0.4",
-    "@types/node": "^20.10.4",
+    "@types/node": "^20.10.5",
     "bumpp": "^9.2.1",
-    "eslint": "^8.55.0",
+    "eslint": "^8.56.0",
     "eslint-ts-patch": "workspace:*",
     "esno": "^4.0.0",
     "execa": "^8.0.1",
     "fs-extra": "^11.2.0",
     "lint-staged": "^15.2.0",
-    "pnpm": "^8.12.0",
+    "pnpm": "^8.12.1",
     "rimraf": "^5.0.5",
     "simple-git-hooks": "^2.9.0",
     "typescript": "^5.3.3",
-    "vite": "^5.0.7",
-    "vitest": "^1.0.4"
+    "vite": "^5.0.10",
+    "vitest": "^1.1.0"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged"

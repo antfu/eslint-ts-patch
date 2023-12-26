@@ -21,7 +21,9 @@ For `.js`, `.cjs`, and `.mjs` files, they will be loaded by Node's native `impor
 
 For `.ts`, `.cts`, and `.mts` files, they will be loaded using [`jiti`](https://github.com/unjs/jiti/).
 
-Context: [Unfortunately ESLint team decided to not support the detection of `.cjs` and `.mjs` as flat config](https://github.com/eslint/eslint/issues/16580#issuecomment-1419027861).
+Context:
+- [~~Unfortunately ESLint team decided to not support the detection of `.cjs` and `.mjs` as flat config~~](https://github.com/eslint/eslint/issues/16580#issuecomment-1419027861).
+- Update: [ESLint revised the decision to support `eslint.config.mjs` and `eslint.config.cjs` but haven't landed yet](https://github.com/eslint/eslint/issues/17863)
 
 ## Install
 
