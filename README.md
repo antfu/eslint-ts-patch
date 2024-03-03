@@ -23,7 +23,8 @@ For `.ts`, `.cts`, and `.mts` files, they will be loaded using [`jiti`](https://
 
 Context:
 - [~~Unfortunately ESLint team decided to not support the detection of `.cjs` and `.mjs` as flat config~~](https://github.com/eslint/eslint/issues/16580#issuecomment-1419027861).
-- Update: [ESLint revised the decision to support `eslint.config.mjs` and `eslint.config.cjs` but haven't landed yet](https://github.com/eslint/eslint/issues/17863)
+- ~~Update: [ESLint revised the decision to support `eslint.config.mjs` and `eslint.config.cjs` but haven't landed yet](https://github.com/eslint/eslint/issues/17863).~~
+- Update: [ESLint v8.57.0 add support for `eslint.config.mjs` and `eslint.config.cjs`](https://eslint.org/blog/2024/02/eslint-v8.57.0-released).
 
 ## Install
 
