@@ -19,12 +19,12 @@ Configure files will be searched in the following order, the first one found wil
 
 For `.js`, `.cjs`, and `.mjs` files, they will be loaded by Node's native `import()`.
 
-For `.ts`, `.cts`, and `.mts` files, they will be loaded using [`jiti`](https://github.com/unjs/jiti/).
+For `.ts`, `.cts`, and `.mts` files, they will be loaded using [TypeScript loaders](#typescript-loaders).
 
 Context:
 - [~~Unfortunately ESLint team decided to not support the detection of `.cjs` and `.mjs` as flat config~~](https://github.com/eslint/eslint/issues/16580#issuecomment-1419027861).
-- ~~Update: [ESLint revised the decision to support `eslint.config.mjs` and `eslint.config.cjs` but haven't landed yet](https://github.com/eslint/eslint/issues/17863).~~
 - Update: [ESLint v8.57.0 added support for `eslint.config.mjs` and `eslint.config.cjs`](https://eslint.org/blog/2024/02/eslint-v8.57.0-released).
+- Native TS support in ESLint is coming: [RFC](https://github.com/eslint/rfcs/pull/117#discussion_r1593410239)
 
 ## Install
 
@@ -33,6 +33,33 @@ npm i -D eslint-ts-patch eslint@npm:eslint-ts-patch
 ```
 
 It should make your `eslint` CLI work for those config files automatically. If it's still not, you can try switching the CLI to `eslint-ts`.
+
+## TypeScript Loaders
+
+There are multiple solutions to load TypeScript files in Node.js at runtime, and each of them consists of different trade-offs. This patch supports the following loaders:
+
+- [`jiti`](https://github.com/unjs/jiti) (default) - Transpile TypeScript files and ESM to CJS and execute them at runtime.
+  - **Pros**: Easy to use. No need to install additional dependencies.
+  - **Cons**: Everything is in CJS mode. It does not support top-level-await. It May have inconsistent behavior during ESM/CJS interop.
+- [`bundle-require`](https://github.com/egoist/bundle-require) - Use `esbuild` to bundle the `eslint.config.ts` file, and import the temporary bundle.
+  - **Pros**: Not hacking into Node's internals. ESM and top-level-await are supported.
+  - **Cons**: It writes a temporary file to disk.
+- [`tsx`](https://github.com/privatenumber/tsx) - Use Node's native ESM loader to load TypeScript files.
+  - **Pros**: Use Node's native ESM loader, running in ESM. Should have the most correct behavior.
+  - **Cons**: Still experimental. Not yet working well in VS Code extension, etc.
+
+To try out different loaders, you can set the `ESLINT_TS_LOADER` environment variable to one of the following values:
+
+```sh
+ESLINT_TS_LOADER=tsx npx eslint
+```
+
+`tsx` and `bundle-require` are not included in the dependencies of this package, you need to install them yourself.
+
+```sh
+npm i -D eslint-ts-patch tsx
+npm i -D eslint-ts-patch bundle-require
+```
 
 ## Compatibility
 
