@@ -48,10 +48,11 @@ There are multiple solutions to load TypeScript files in Node.js at runtime, and
   - **Pros**: Use Node's native ESM loader, running in ESM. Should have the most correct behavior.
   - **Cons**: Still experimental. Not yet working well in VS Code extension, etc.
 
-To try out different loaders, you can set the `ESLINT_TS_LOADER` environment variable to one of the following values:
+To try out different loaders, you can set the `ESLINT_TS_PATCH_LOADER` environment variable to one of the following values:
 
 ```sh
-ESLINT_TS_LOADER=tsx npx eslint
+ESLINT_TS_PATCH_LOADER=tsx npx eslint
+ESLINT_TS_PATCH_LOADER=bundle-require npx eslint
 ```
 
 `tsx` and `bundle-require` are not included in the dependencies of this package, you need to install them yourself.
