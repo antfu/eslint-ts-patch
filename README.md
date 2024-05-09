@@ -55,6 +55,12 @@ ESLINT_TS_PATCH_LOADER=tsx npx eslint
 ESLINT_TS_PATCH_LOADER=bundle-require npx eslint
 ```
 
+Or you can use magic comments `@eslint-ts-patch-loader` in your `eslint.config.ts` file:
+
+```ts
+// @eslint-ts-patch-loader tsx
+```
+
 `tsx` and `bundle-require` are not included in the dependencies of this package, you need to install them yourself.
 
 ```sh
