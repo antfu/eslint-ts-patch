@@ -24,7 +24,7 @@ For `.ts`, `.cts`, and `.mts` files, they will be loaded using [TypeScript loade
 Context:
 - [~~Unfortunately ESLint team decided to not support the detection of `.cjs` and `.mjs` as flat config~~](https://github.com/eslint/eslint/issues/16580#issuecomment-1419027861).
 - Update: [ESLint v8.57.0 added support for `eslint.config.mjs` and `eslint.config.cjs`](https://eslint.org/blog/2024/02/eslint-v8.57.0-released).
-- Native TS support in ESLint is coming: [RFC](https://github.com/eslint/rfcs/pull/117#discussion_r1593410239)
+- Native TS support in ESLint is coming: [RFC](https://github.com/eslint/rfcs/pull/117#discussion_r1593410239) - This package will soon be redundant when it's landed.
 
 ## Install
 
@@ -40,6 +40,7 @@ There are multiple solutions to load TypeScript files in Node.js at runtime, and
 
 - [`tsx`](https://github.com/privatenumber/tsx) (default) - Use Node's native ESM loader to load TypeScript files.
   - **Pros**: Use Node's native ESM loader, running in ESM. Should have the most correct behavior.
+  - **Cons**: It requires [Node.js v18.19.0+ or v20.8.0](https://nodejs.org/api/module.html#moduleregisterspecifier-parenturl-options). It might not
 - [`jiti`](https://github.com/unjs/jiti)- Transpile TypeScript files and ESM to CJS and execute them at runtime.
   - **Pros**: Easy to use. No need to install additional dependencies.
   - **Cons**: Everything is in CJS mode. It does not support top-level-await. It May have inconsistent behavior during ESM/CJS interop.
@@ -80,9 +81,15 @@ Tested with the following tools:
 ### Integrations
 
 - `eslint` CLI ✅
-- VSCode ESLint extension ✅ (as it's executing your local `node_modules/.bin/eslint`)
+- VSCode ESLint extension ⚠️ (as it's executing your local `node_modules/.bin/eslint`)
 
-Haven't gotten chance to test with other integrations, contributions are welcome.
+As for [VS Code v1.89](https://code.visualstudio.com/updates/v1_89) (April 2024) the bundled Node is v18.18.2, which is not compatible with `tsx` loader (requires v18.19.0+) - Which should be [fixed with next month's VS Code release](https://github.com/microsoft/vscode/commit/5216c044283ba1f3c66caa092fd75ba0b3e3e5ca#diff-a4764aae9fcfee2bd5f25de9fd217e38b6278b95f2848508250a895fd631aa0e). In order for VS Code ESLint works now, you need to update your settings.json with the following config to use your global Node.js:
+
+```json
+{
+  "eslint.runtime": "node"
+}
+```
 
 ## Versioning
 
