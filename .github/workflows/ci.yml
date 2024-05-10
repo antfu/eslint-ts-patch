@@ -82,3 +82,18 @@ jobs:
 
       - name: Test
         run: nr test
+
+      - name: Run (jiti)
+        run: nr lint
+        env:
+          ESLINT_TS_PATCH_LOADER: jiti
+
+      - name: Run (bundle-require)
+        run: nr lint
+        env:
+          ESLINT_TS_PATCH_LOADER: bundle-require
+
+      - name: Run (tsx)
+        run: nr lint
+        env:
+          ESLINT_TS_PATCH_LOADER: tsx

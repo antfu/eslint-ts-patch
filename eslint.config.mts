@@ -1,7 +1,7 @@
 import antfu from '@antfu/eslint-config'
 
 // Change the following line to dynamically change the loader
-// @eslint-ts-patch-loader jiti
+// @eslint-ts-patch-loader default
 
 const a: string = 'Hello'
 
