@@ -87,13 +87,16 @@ jobs:
         run: nr lint
         env:
           ESLINT_TS_PATCH_LOADER: jiti
+          DEBUG: eslint-ts-patch
 
       - name: Run (bundle-require)
         run: nr lint
         env:
           ESLINT_TS_PATCH_LOADER: bundle-require
+          DEBUG: eslint-ts-patch
 
       - name: Run (tsx)
         run: nr lint
         env:
           ESLINT_TS_PATCH_LOADER: tsx
+          DEBUG: eslint-ts-patch
