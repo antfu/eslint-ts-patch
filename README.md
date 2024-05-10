@@ -40,7 +40,7 @@ There are multiple solutions to load TypeScript files in Node.js at runtime, and
 
 - [`tsx`](https://github.com/privatenumber/tsx) (default) - Use Node's native ESM loader to load TypeScript files.
   - **Pros**: Use Node's native ESM loader, running in ESM. Should have the most correct behavior.
-  - **Cons**: It requires [Node.js v18.19.0+ or v20.8.0](https://nodejs.org/api/module.html#moduleregisterspecifier-parenturl-options). It might not
+  - **Cons**: It requires [Node.js v18.19.0+ or v20.8.0](https://nodejs.org/api/module.html#moduleregisterspecifier-parenturl-options). Refer to the [Compatibility](#compatibility) section.
 - [`jiti`](https://github.com/unjs/jiti)- Transpile TypeScript files and ESM to CJS and execute them at runtime.
   - **Pros**: Easy to use. No need to install additional dependencies.
   - **Cons**: Everything is in CJS mode. It does not support top-level-await. It May have inconsistent behavior during ESM/CJS interop.
