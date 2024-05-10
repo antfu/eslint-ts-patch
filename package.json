@@ -40,12 +40,20 @@
   },
   "peerDependencies": {
     "bundle-require": "^4.1.0",
-    "tsx": "^4.9.3"
+    "jiti": "^1.21.0"
+  },
+  "peerDependenciesMeta": {
+    "bundle-require": {
+      "optional": true
+    },
+    "jiti": {
+      "optional": true
+    }
   },
   "dependencies": {
     "debug": "^4.3.4",
     "eslint": "^9.2.0",
-    "jiti": "^1.21.0"
+    "tsx": "^4.9.4"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.17.0",
@@ -59,11 +67,11 @@
     "esno": "^4.7.0",
     "execa": "^9.0.2",
     "fs-extra": "^11.2.0",
+    "jiti": "^1.21.0",
     "lint-staged": "^15.2.2",
     "pnpm": "^9.1.0",
-    "rimraf": "^5.0.5",
+    "rimraf": "^5.0.6",
     "simple-git-hooks": "^2.11.1",
-    "tsx": "^4.9.4",
     "typescript": "^5.4.5",
     "vite": "^5.2.11",
     "vitest": "^1.6.0"
