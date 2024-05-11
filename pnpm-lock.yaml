@@ -15,8 +15,8 @@ importers:
         specifier: ^9.2.0
         version: 9.2.0
       importx:
-        specifier: ^0.1.2
-        version: 0.1.2
+        specifier: ^0.2.0
+        version: 0.2.0
     devDependencies:
       '@antfu/eslint-config':
         specifier: ^2.17.0
@@ -39,6 +39,9 @@ importers:
       bundle-require:
         specifier: ^4.1.0
         version: 4.1.0(esbuild@0.20.2)
+      cross-env:
+        specifier: ^7.0.3
+        version: 7.0.3
       eslint-ts-patch:
         specifier: workspace:*
         version: 'link:'
@@ -830,6 +833,11 @@ packages:
   core-js-compat@3.37.0:
     resolution: {integrity: sha512-vYq4L+T8aS5UuFg4UwDhc7YNRWVeVZwltad9C/jV3R2LgVOpS9BDr7l/WL6BN0dbV3k1XejPTHqqEzJgsa0frA==}
 
+  cross-env@7.0.3:
+    resolution: {integrity: sha512-+/HKd6EgcQCJGh2PSjZuUitQBQynKor4wrFbRg4DtAgS1aWO+gU52xpH7M9ScGgXSYmAVS9bIJ8EzuaGw0oNAw==}
+    engines: {node: '>=10.14', npm: '>=6', yarn: '>=1'}
+    hasBin: true
+
   cross-spawn@7.0.3:
     resolution: {integrity: sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==}
     engines: {node: '>= 8'}
@@ -1300,8 +1308,8 @@ packages:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}
     engines: {node: '>=6'}
 
-  importx@0.1.2:
-    resolution: {integrity: sha512-bd/2q8m4YfruZuOfhAEwhuec2GKaR6z8VemGMNltnu+a/HBdQr2OzL60Gr5CTptGYTOd5+s3dUudNXrbpKY77g==}
+  importx@0.2.0:
+    resolution: {integrity: sha512-a1WsQz4efNJGPPaQkcMioCQ1ttRZlJh2e53ivJUuR/LvjYW0cCqe2m6gcBqj3U+QyG7KU5zLkkZ2CtObNKLhXA==}
 
   imurmurhash@0.1.4:
     resolution: {integrity: sha512-JmXMZ6wuvDmLiHEml9ykzqO6lwFbof0GG4IkcGaENdCRDDmMVnny7s5HsIgHCbaq0w2MyPhDqkhTUgS2LU2PHA==}
@@ -2005,8 +2013,8 @@ packages:
   tslib@2.6.2:
     resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
 
-  tsx@4.9.4:
-    resolution: {integrity: sha512-TlSJTVn2taGGDgdV3jAqCj7WQ/CafCB5p4SbG7W2Bl/0AJWH1ShJlBbc0y2lOFTjQEVAAULSTlmehw/Mwv3S/Q==}
+  tsx@4.10.0:
+    resolution: {integrity: sha512-Ct/j4Yv49EFlr1z5CT++ld+BUhjLRLtimE4hIDaW9zEVIp3xJOQdTDAan+KEXeme7GcYIGzFD421Zcqf9dHomw==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -2959,6 +2967,10 @@ snapshots:
     dependencies:
       browserslist: 4.23.0
 
+  cross-env@7.0.3:
+    dependencies:
+      cross-spawn: 7.0.3
+
   cross-spawn@7.0.3:
     dependencies:
       path-key: 3.1.1
@@ -3308,7 +3320,7 @@ snapshots:
 
   esno@4.7.0:
     dependencies:
-      tsx: 4.9.4
+      tsx: 4.10.0
 
   espree@10.0.1:
     dependencies:
@@ -3528,13 +3540,13 @@ snapshots:
       parent-module: 1.0.1
       resolve-from: 4.0.0
 
-  importx@0.1.2:
+  importx@0.2.0:
     dependencies:
       bundle-require: 4.1.0(esbuild@0.20.2)
       debug: 4.3.4
       esbuild: 0.20.2
       jiti: 1.21.0
-      tsx: 4.9.4
+      tsx: 4.10.0
     transitivePeerDependencies:
       - supports-color
 
@@ -4196,7 +4208,7 @@ snapshots:
 
   tslib@2.6.2: {}
 
-  tsx@4.9.4:
+  tsx@4.10.0:
     dependencies:
       esbuild: 0.20.2
       get-tsconfig: 4.7.5
