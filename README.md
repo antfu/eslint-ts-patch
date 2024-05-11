@@ -36,17 +36,20 @@ It should make your `eslint` CLI work for those config files automatically. If i
 
 ## TypeScript Loaders
 
-There are multiple solutions to load TypeScript files in Node.js at runtime, and each of them consists of different trade-offs. This patch supports the following loaders:
+There are multiple solutions to load TypeScript files in Node.js at runtime, and each of them consists of different trade-offs. This patch supports the following loaders powered by [`importx`](https://github.com/antfu/importx):
 
-- [`tsx`](https://github.com/privatenumber/tsx) (default) - Use Node's native ESM loader to load TypeScript files.
+- `default`: [Auto-detect the loader based on the user's environment](https://github.com/antfu/importx#auto).
+- [`tsx`](https://github.com/privatenumber/tsx) - Use Node's native ESM loader to load TypeScript files.
   - **Pros**: Use Node's native ESM loader, running in ESM. Should have the most correct behavior.
   - **Cons**: It requires [Node.js v18.19.0+ or v20.8.0](https://nodejs.org/api/module.html#moduleregisterspecifier-parenturl-options). Refer to the [Compatibility](#compatibility) section.
 - [`jiti`](https://github.com/unjs/jiti)- Transpile TypeScript files and ESM to CJS and execute them at runtime.
   - **Pros**: Easy to use. No need to install additional dependencies.
-  - **Cons**: Everything is in CJS mode. It does not support top-level-await. It May have inconsistent behavior during ESM/CJS interop.
+  - **Cons**: Everything is in CJS mode. It does not support top-level-await. It may have inconsistent behavior during ESM/CJS interop.
 - [`bundle-require`](https://github.com/egoist/bundle-require) - Use `esbuild` to bundle the `eslint.config.ts` file, and import the temporary bundle.
   - **Pros**: Not hacking into Node's internals. ESM and top-level-await are supported.
   - **Cons**: It writes a temporary file to disk.
+
+Learn more about the loaders in the [`importx` documentation](https://github.com/antfu/importx).
 
 To try out different loaders, you can set the `ESLINT_TS_PATCH_LOADER` environment variable to one of the following values:
 
@@ -59,13 +62,6 @@ Or you can use magic comments `@eslint-ts-patch-loader` in your `eslint.config.t
 
 ```ts
 // @eslint-ts-patch-loader tsx
-```
-
-`jiti` and `bundle-require` are not included in the dependencies of this package, you need to install them yourself.
-
-```sh
-npm i -D eslint-ts-patch jiti
-npm i -D eslint-ts-patch bundle-require
 ```
 
 ## Compatibility

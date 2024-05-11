@@ -14,9 +14,9 @@ importers:
       eslint:
         specifier: ^9.2.0
         version: 9.2.0
-      tsx:
-        specifier: ^4.9.4
-        version: 4.9.4
+      importx:
+        specifier: ^0.1.2
+        version: 0.1.2
     devDependencies:
       '@antfu/eslint-config':
         specifier: ^2.17.0
@@ -1299,6 +1299,9 @@ packages:
   import-fresh@3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}
     engines: {node: '>=6'}
+
+  importx@0.1.2:
+    resolution: {integrity: sha512-bd/2q8m4YfruZuOfhAEwhuec2GKaR6z8VemGMNltnu+a/HBdQr2OzL60Gr5CTptGYTOd5+s3dUudNXrbpKY77g==}
 
   imurmurhash@0.1.4:
     resolution: {integrity: sha512-JmXMZ6wuvDmLiHEml9ykzqO6lwFbof0GG4IkcGaENdCRDDmMVnny7s5HsIgHCbaq0w2MyPhDqkhTUgS2LU2PHA==}
@@ -3524,6 +3527,16 @@ snapshots:
     dependencies:
       parent-module: 1.0.1
       resolve-from: 4.0.0
+
+  importx@0.1.2:
+    dependencies:
+      bundle-require: 4.1.0(esbuild@0.20.2)
+      debug: 4.3.4
+      esbuild: 0.20.2
+      jiti: 1.21.0
+      tsx: 4.9.4
+    transitivePeerDependencies:
+      - supports-color
 
   imurmurhash@0.1.4: {}
 
