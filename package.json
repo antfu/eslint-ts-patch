@@ -41,7 +41,7 @@
   "dependencies": {
     "debug": "^4.3.6",
     "eslint": "^9.8.0",
-    "importx": "^0.4.1"
+    "importx": "^0.4.2"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.24.0",
