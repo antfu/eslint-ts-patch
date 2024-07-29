@@ -1,7 +1,7 @@
 {
   "name": "eslint-ts-patch",
   "type": "commonjs",
-  "version": "9.8.0-0",
+  "version": "9.8.0-1",
   "packageManager": "pnpm@9.6.0",
   "description": "Support eslint.config.mjs and eslint.config.ts for ESLint",
   "author": "Anthony Fu <anthonyfu117@hotmail.com>",
