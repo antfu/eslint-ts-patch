@@ -24,7 +24,7 @@ For `.ts`, `.cts`, and `.mts` files, they will be loaded using [TypeScript loade
 Context:
 - [~~Unfortunately ESLint team decided to not support the detection of `.cjs` and `.mjs` as flat config~~](https://github.com/eslint/eslint/issues/16580#issuecomment-1419027861).
 - Update: [ESLint v8.57.0 added support for `eslint.config.mjs` and `eslint.config.cjs`](https://eslint.org/blog/2024/02/eslint-v8.57.0-released).
-- Native TS support in ESLint is coming: [RFC](https://github.com/eslint/rfcs/pull/117#discussion_r1593410239) - This package will soon be redundant when it's landed.
+- Native ESLint support for `eslint.config.ts` has been merged (not released yet): [PR](https://github.com/eslint/eslint/pull/18134), [Original RFC](https://github.com/eslint/rfcs/pull/117#discussion_r1593410239) - This package will soon be redundant when it's landed.
 
 ## Install
 
